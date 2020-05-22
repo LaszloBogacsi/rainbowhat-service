@@ -2,6 +2,8 @@ import os
 
 from flask import Flask
 
+from rainbowhat_app.graphics_runner import run_graphics
+
 
 def create_app(test_config=None):
     # create and configure the app
@@ -10,7 +12,6 @@ def create_app(test_config=None):
     #     SECRET_KEY='dev',
     #     DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
     # )
-
     if test_config is None:
         # load the instance config, if it exists, when not testing
         app.config.from_pyfile('config.py', silent=True)
@@ -25,8 +26,16 @@ def create_app(test_config=None):
         pass
 
     # a simple page that says hello
-    @app.route('/hello')
-    def hello():
+    @app.route('/')
+    def meeting_main():
         return 'Hello, World!'
+
+    @app.route('/meeting/<status>')
+    def meeting_on(status: str):
+        run_graphics(toState(status))
+        return 'Hello,' + str(toState(status))
+
+    def toState(status) -> bool:
+        return status.lower() == "on"
 
     return app
