@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>Meeting:
+    <a href="{{ url_for('meeting_status.meeting_on', status='on') }}">
+        ON
+    </a>
+    <a href="{{ url_for('meeting_status.meeting_on', status='off') }}">
+        OFF
+    </a>
+</div>
+<div>Current Status:
+<h2>{{ status }}</h2></div>
+</body>
+</html>

@@ -48,6 +48,7 @@ class ScrollingGraphics():
 
         self.status = True
         while self.check_status():
+            print("Working...")
             self.step()
             sleep(0.2)
 

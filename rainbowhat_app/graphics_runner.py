@@ -1,8 +1,10 @@
+from rainbowhat_app import celery
 from rainbowhat_app.itv_pic import ScrollingGraphics
 
 graphics = ScrollingGraphics()
 
 
-def run_graphics(shouldRun):
-    print("status: " + str(shouldRun))
-    graphics.run() if shouldRun else graphics.stop()
+@celery.task
+def run_graphics():
+    print("Running task")
+    graphics.run()
