@@ -2,18 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+
+    <title>Meeting Status</title>
 </head>
 <body>
-<div>Meeting:
-    <a href="{{ url_for('meeting_status.meeting_on', status='on') }}">
-        ON
-    </a>
-    <a href="{{ url_for('meeting_status.meeting_on', status='off') }}">
-        OFF
-    </a>
+<div class="main-container">
+    <div class="main-title">MEETING LIGHT</div>
+    <div class="button-container">
+        <a class="button right {% if active_status == 'on' %}active{% endif %}" href="{{ url_for('meeting_status.meeting_on', status='on') }}">
+            ON
+        </a>
+        <a class="button {% if active_status == 'off' %}active{% endif %}" href="{{ url_for('meeting_status.meeting_on', status='off') }}">
+            OFF
+        </a>
+    </div>
 </div>
-<div>Current Status:
-<h2>{{ status }}</h2></div>
+
 </body>
 </html>

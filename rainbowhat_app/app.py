@@ -3,9 +3,12 @@ import os
 from flask import Flask
 from celery import Celery
 
+root_folder = os.path.abspath(os.path.dirname(__file__))
+static_folder = os.path.join(root_folder, 'static')
+
 
 def create_app(test_config=None):
-    app = Flask(__name__, instance_relative_config=True)
+    app = Flask(__name__, instance_relative_config=True, static_folder=static_folder, root_path=root_folder)
     # app.config.from_mapping(
     #     SECRET_KEY='dev',
     #     DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),

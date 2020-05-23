@@ -1,5 +1,8 @@
 # Rainbowhat Service
 
+## Description
+This service helps displaying graphics on an RGB led HAT (Rainbow HAT) attached to a Raspberry PI.
+
 Simple Python 3 + Flask app with a long running task runner.
 
 The task runner is implemented with Celery and RabbitMQ
@@ -17,6 +20,10 @@ The task runner is implemented with Celery and RabbitMQ
 ### Celery
 
 `pip install celery`
+
+#### Running Celery
+
+`pipenv run celery -A rainbowhat_app.celery worker`
 
 
 

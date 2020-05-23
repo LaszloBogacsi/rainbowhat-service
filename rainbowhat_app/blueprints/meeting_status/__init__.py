@@ -12,7 +12,8 @@ result = None
 @meeting_status.route('/meeting', methods=['GET'])
 def show_meeting_status():
     try:
-        return render_template('meeting/index.html', status="on" if result is not None else "off")
+
+        return render_template('meeting/index.html', active_status="on" if result is not None else "off")
     except TemplateNotFound:
         abort(404)
 
@@ -26,7 +27,7 @@ def meeting_on(status: str):
     elif not to_state(status) and result is not None:
         result.revoke(terminate=True, signal='SIGUSR1')
         result = None
-    return render_template('meeting/index.html', status=status)
+    return render_template('meeting/index.html', active_status=status)
 
 
 def to_state(status) -> bool:
