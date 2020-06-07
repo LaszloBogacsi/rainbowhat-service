@@ -41,12 +41,14 @@ This starts a worker node. The worker instance object is in `rainbowhat_app.cele
 
 ### Prerequisite
 ```commandline
-apt-get install supervisor
-service supervisor restart
+sudo apt-get install supervisor
+sudo service supervisor restart
 
-sudo apt install nginx
+sudo apt-get install nginx
 
-pip3 install pipenv
+sudo apt-get install gunicorn
+
+sudo pip3 install pipenv
 
 ```
 Create a `log` folder in the service directory
@@ -56,10 +58,15 @@ Create a `log` folder in the service directory
 Copy `infra/rainbowhat_service.conf` from the project to `/etc/supervisor/conf.d/` on the PI
 
 ### Nginx config
+
 Copy `infra/rainbowhat-app.conf` to `/etc/nginx/sites-enabled/rainbowhat-app.conf`
 
 And restart Nginx  
 `service nginx restart`
+
+### Gunicorn config
+
+For eg `infra/gunicorn.conf.py` 
 
 ### Client computer config
 edit the `/etc/host` file and add
