@@ -49,6 +49,7 @@ sudo apt install nginx
 pip3 install pipenv
 
 ```
+Create a `log` folder in the service directory
 
 ### Supervisor config
 
