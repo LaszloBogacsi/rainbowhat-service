@@ -23,7 +23,7 @@ Download Docker
 Install  
 `sudo sh get-docker.sh`  
 Add the Pi user to the Docker user group  
-`sudo usermod -aG docker Pi`
+`sudo usermod -aG docker pi`
 
 ## Celery
 
@@ -38,6 +38,17 @@ Add the Pi user to the Docker user group
 This starts a worker node. The worker instance object is in `rainbowhat_app.celery` with the configuration.
 
 ## Running it on Raspberry Pi
+
+### Prerequisite
+```commandline
+apt-get install supervisor
+service supervisor restart
+
+sudo apt install nginx
+
+pip3 install pipenv
+
+```
 
 ### Supervisor config
 
@@ -59,6 +70,9 @@ edit the `/etc/host` file and add
 ### Deployment
 
 add symlink to the `infra/deploy.sh` from the Raspberry PI service folder.
+```commandline
+ln -s deployment/infra/deploy.sh deploy.sh
+```
 
 Run the deploy script
 
