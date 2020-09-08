@@ -9,6 +9,8 @@ verify_ssl = true
 flask = "*"
 celery = "*"
 gunicorn = "*"
+rpi-ws281x = {editable = true, path = "./library/rpi-ws281x"}
+rainbowhat = {editable = true, path = "./library/RainbowHat"}
 
 [requires]
 python_version = "3.7"
