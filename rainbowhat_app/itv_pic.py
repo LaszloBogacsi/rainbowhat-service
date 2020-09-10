@@ -59,7 +59,7 @@ def stop():
     status = False
 
 
-def check_status() -> bool:
+def check_status():
     return status
 
 
