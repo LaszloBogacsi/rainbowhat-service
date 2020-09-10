@@ -8,7 +8,7 @@ git pull origin master
 echo "Pipenv, install project dependencies..."
 pipenv install
 echo "shutting down celery..."
-pipenv run celery control shutdown
+pipenv run celery control shutdown || true
 wait
 echo "starting new celery worker"
 pipenv run celery -A rainbowhat_app.celery worker
