@@ -13,7 +13,7 @@ width, height = rainbow.get_shape()
 # Every line needs to be exactly 8 characters
 # but you can have as many lines as you like.
 
-status: bool
+status = False
 ASCIIPIC = [
     "        "
     , "i tttv v"
