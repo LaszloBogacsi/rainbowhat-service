@@ -9,6 +9,7 @@ class ScriptRunner(object):
         print("Running task")
         popen = subprocess.Popen(command, universal_newlines=True)
         stdout, stderr = popen.communicate()
+        print("Task running on: {}".format(popen.pid))
         if stderr:
             raise Exception("Error "+str(stderr))
 
