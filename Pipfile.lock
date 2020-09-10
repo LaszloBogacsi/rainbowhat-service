@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5b5f35d62e330d24c32f1d5ecbe784ed95f14adf6f32f636c19247fd1fc1430b"
+            "sha256": "7685401b4c5202ea175ba2c6a8a146573ceda5a472ff9dc4abcad16af38348c1"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -140,6 +140,10 @@
                 "sha256:c35965d010ce31b23eeb663ed3cc8c906275d6be1a34393a1d73a41febf4a048"
             ],
             "version": "==2020.1"
+        },
+        "rainbowhat": {
+            "editable": true,
+            "path": "./library/RainbowHat"
         },
         "rpi-ws281x": {
             "editable": true,

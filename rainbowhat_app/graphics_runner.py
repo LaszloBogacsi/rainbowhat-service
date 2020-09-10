@@ -1,10 +1,22 @@
-from rainbowhat_app import celery
-from rainbowhat_app.itv_pic import ScrollingGraphics
+import subprocess
 
-graphics = ScrollingGraphics()
+from rainbowhat_app import celery
+
+
+class ScriptRunner(object):
+    def run(self, command: [str]):
+        print("Running task")
+        popen = subprocess.Popen(command, universal_newlines=True)
+        stdout, stderr = popen.communicate()
+        if stderr:
+            raise Exception("Error "+str(stderr))
+
+
+scriptRunner = ScriptRunner()
 
 
 @celery.task
 def run_graphics():
     print("Running task")
-    graphics.run()
+    command = ["pipenv", "run", "sudo", "python", "itv_pic.py"]
+    scriptRunner.run(command)
