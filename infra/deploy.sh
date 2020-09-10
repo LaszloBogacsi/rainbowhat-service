@@ -9,6 +9,7 @@ echo "Pipenv, install project dependencies..."
 pipenv install
 echo "shutting down celery..."
 pipenv run celery control shutdown
+wait
 echo "starting new celery worker"
 pipenv run celery -A rainbowhat_app.celery worker
 
