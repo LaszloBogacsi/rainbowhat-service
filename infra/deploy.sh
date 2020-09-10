@@ -11,7 +11,7 @@ echo "shutting down celery..."
 pipenv run celery control shutdown || true
 wait
 echo "starting new celery worker"
-pipenv run celery -A rainbowhat_app.celery worker
+pipenv run celery -A rainbowhat_app.celery worker &
 
 echo "Update supervisor and restart app"
 sudo supervisorctl reread
