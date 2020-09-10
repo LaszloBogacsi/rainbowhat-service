@@ -19,5 +19,5 @@ scriptRunner = ScriptRunner()
 @celery.task
 def run_graphics():
     print("Running task")
-    command = ["pipenv", "run", "sudo", "python", "./rainbowhat_app/itv_pic.py"]
+    command = ["pipenv", "run", "sudo", "python3", "./rainbowhat_app/itv_pic.py"]
     scriptRunner.run(command)
