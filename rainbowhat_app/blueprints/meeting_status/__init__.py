@@ -25,7 +25,7 @@ def meeting_on(status: str):
     if to_state(status) and result is None:
         result = run_graphics.delay()
     elif not to_state(status) and result is not None:
-        result.revoke(terminate=True, signal='SIGKILL')
+        result.revoke(terminate=True, signal='SIGINT')
         result = None
     return render_template('meeting/index.html', active_status=status)
 

@@ -6,7 +6,6 @@ from rainbowhat_app import celery
 
 class ScriptRunner(object):
     def run(self, command: [str]):
-        print("Running task")
         popen = subprocess.Popen(command, universal_newlines=True, preexec_fn=os.setpgrp)
         stdout, stderr = popen.communicate()
         print("Task running on: {}".format(popen.pid))
