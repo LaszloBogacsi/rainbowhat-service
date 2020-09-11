@@ -12,9 +12,9 @@ class ScriptRunner(object):
         child = subprocess.Popen(command, universal_newlines=True, preexec_fn=os.setpgrp)
         self.current_gpid = os.getpgid(child.pid)
         print("Task running on: {}".format(child.pid))
-        stdout, stderr = child.communicate()
-        if stderr:
-            raise Exception("Error "+str(stderr))
+        # stdout, stderr = child.communicate()
+        # if stderr:
+        #     raise Exception("Error "+str(stderr))
 
     def stop(self, command_fn):
         subprocess.check_call(command_fn(self.current_gpid))
