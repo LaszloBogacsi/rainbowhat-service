@@ -21,10 +21,12 @@ def show_meeting_status():
 @meeting_status.route('/meeting/<status>')
 def meeting_on(status: str):
     global result
-
+    from flask import current_app
     if to_state(status) and result is None:
         result = run_graphics.delay()
     elif not to_state(status) and result is not None:
+        current_app.logger.info(result)
+        current_app.logger.info("Terminating process")
         result.revoke(terminate=True, signal='SIGINT')
         result = None
     return render_template('meeting/index.html', active_status=status)
