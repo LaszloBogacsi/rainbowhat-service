@@ -12,9 +12,6 @@ class ScriptRunner(object):
         child = subprocess.Popen(command, universal_newlines=True, preexec_fn=os.setpgrp)
         self.current_gpid = os.getpgid(child.pid)
         print("Task running on: {}".format(child.pid))
-        # stdout, stderr = child.communicate()
-        # if stderr:
-        #     raise Exception("Error "+str(stderr))
 
     def stop(self, command_fn):
         subprocess.check_call(command_fn(self.current_gpid))
@@ -30,7 +27,7 @@ class GraphicsExecutor:
         self.runner = ScriptRunner()
         command = shlex.split("pipenv run sudo python3 ./rainbowhat_app/itv_pic.py")
         self.runner.run(command)
-        print("stariing")
+        print("starting")
 
     def stop_graphics(self):
         print("stopping")
